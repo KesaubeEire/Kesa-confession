@@ -6,10 +6,19 @@
     <description>Recent content on Kesa_Confession</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 21 Jan 2019 16:27:19 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jan 2019 18:17:32 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Plan|近期计划</title>
+      <link>http://localhost:1313/post/plan/</link>
+      <pubDate>Mon, 21 Jan 2019 18:17:32 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/plan/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Again|再出发</title>
@@ -17,7 +26,7 @@
       <pubDate>Mon, 21 Jan 2019 16:27:19 +0800</pubDate>
       
       <guid>http://localhost:1313/post/first_confession/</guid>
-      <description>终于真香 Again 又是一次这种相遇 熟悉的Hugo博客 熟悉的更换主题 其实今年我对自己的无能和软弱认识更加深刻了 当然也更加成熟了 当时也伴随着深深的无力和</description>
+      <description>终于真香 终于有zwj可以公开说我真香的事情了:我用了Even的主题 没办法,Even就是又漂亮又实用 Again 又是一次这种相遇 熟悉的Hugo博客 熟悉的</description>
     </item>
     
   </channel>
