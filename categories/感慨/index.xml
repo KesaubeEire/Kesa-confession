@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>感慨 on Kesa_Confession</title>
+    <link>http://localhost:1313/categories/%E6%84%9F%E6%85%A8/</link>
+    <description>Recent content in 感慨 on Kesa_Confession</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 15 Feb 2019 16:01:58 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/%E6%84%9F%E6%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Back2schoolAgain</title>
+      <link>http://localhost:1313/post/back2schoolagain/</link>
+      <pubDate>Fri, 15 Feb 2019 16:01:58 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/back2schoolagain/</guid>
+      <description>狗改不了XX 既然是这个小标题 发生过了什么你懂得 过去的过去了 回顾一下这个假期有哪些让我记忆深刻的事情吧 动漫经年回顾 第一件让我有所感慨的是就是1</description>
+    </item>
+    
+  </channel>
+</rss>
