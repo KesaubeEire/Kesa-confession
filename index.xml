@@ -6,13 +6,31 @@
     <description>Recent content on Kesa_Confession</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 15 Feb 2019 16:01:58 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 Feb 2019 16:21:34 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Back2SchoolAgain</title>
+      <title>Crawler_By_nladuo</title>
+      <link>http://localhost:1313/post/crawler_by_nladuo/</link>
+      <pubDate>Sun, 17 Feb 2019 16:21:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/crawler_by_nladuo/</guid>
+      <description>衣钵的传承 先上Github地址 接过曾经在806奋斗过得学长的衣钵 我觉得是时候从这位叫nladuo的806前学长的Github里 学一波彻彻底底</description>
+    </item>
+    
+    <item>
+      <title>Coding|All_IN_VSCODE</title>
+      <link>http://localhost:1313/post/all_in_vscode/</link>
+      <pubDate>Sat, 16 Feb 2019 11:07:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/all_in_vscode/</guid>
+      <description>起因 自从放寒假以前开始 我就基本开始了一段不需要IDE的编程之路 开始的原因自然是因为搞OpenGL的freetype字库心态崩了 那个 ft2build.h 相关的库</description>
+    </item>
+    
+    <item>
+      <title>Thoughts|Back2SchoolAgain</title>
       <link>http://localhost:1313/post/back2schoolagain/</link>
       <pubDate>Fri, 15 Feb 2019 16:01:58 +0800</pubDate>
       
