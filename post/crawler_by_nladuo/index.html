@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-02-17T16:21:34&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-17T16:21:34&#43;08:00" />
-<meta itemprop="wordCount" content="536">
+<meta itemprop="wordCount" content="692">
 
 
 
@@ -130,7 +130,7 @@
         
         <span class="post-time"> 2019-02-17 </span>
         
-        <span class="more-meta"> 约 536 字 </span>
+        <span class="more-meta"> 约 692 字 </span>
         
         <span class="more-meta"> 预计阅读 2 分钟 </span>
 
@@ -263,6 +263,57 @@ request做到了既简捷又强大</p>
 用于判定当前用户的状态是个什么样子<br />
 普遍用于用户登录等等<br />
 具体的解释这里有一个<a href="https://juejin.im/entry/5766c29d6be3ff006a31b84e">from掘金</a></p>
+
+<p>这里一个是telnet的用处:模拟简单的browser发请求:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ telnet nladuo.cn <span class="m">80</span>
+
+<span class="c1"># 提示是否已经成功连接</span>
+
+<span class="c1"># 连接后输入 Request</span>
+Host: nladuo.cn<span class="o">(</span>回车<span class="o">)</span>
+HTTP/1.1 <span class="m">200</span> OK<span class="o">(</span>回车*2<span class="o">)</span>
+
+<span class="c1"># 提示提交报文后返回的 Response &amp; html</span>
+HTTP/1.1 <span class="m">200</span> OK
+Server: nginx/1.4.6 <span class="o">(</span>Ubuntu<span class="o">)</span>
+Date: Sun, <span class="m">17</span> Feb <span class="m">2019</span> <span class="m">12</span>:05:05 GMT
+Content-Type: text/html
+Content-Length: <span class="m">18</span>
+Connection: keep-alive
+Last-Modified: Sat, <span class="m">08</span> Dec <span class="m">2018</span> <span class="m">15</span>:29:50 GMT
+ETag: <span class="s2">&#34;12-57c846717793e&#34;</span>
+Accept-Ranges: bytes
+
+&lt;h1&gt;It Works&lt;/h1&gt;
+Connection closed by foreign host.</code></pre></td></tr></table>
+</div>
+</div>
+<p>非常简单的东西</p>
   </div>
 
   <div class="post-copyright">
