@@ -50,7 +50,7 @@
 
 <meta itemprop="datePublished" content="2019-02-17T16:21:34&#43;08:00" />
 <meta itemprop="dateModified" content="2019-02-17T16:21:34&#43;08:00" />
-<meta itemprop="wordCount" content="692">
+<meta itemprop="wordCount" content="1275">
 
 
 
@@ -130,9 +130,9 @@
         
         <span class="post-time"> 2019-02-17 </span>
         
-        <span class="more-meta"> 约 692 字 </span>
+        <span class="more-meta"> 约 1275 字 </span>
         
-        <span class="more-meta"> 预计阅读 2 分钟 </span>
+        <span class="more-meta"> 预计阅读 3 分钟 </span>
 
         <br>
 
@@ -160,6 +160,8 @@
 <li><a href="#简单的基础操作">简单的基础操作</a></li>
 <li><a href="#session登陆">session登陆</a></li>
 </ul></li>
+<li><a href="#爬虫框架">爬虫框架</a></li>
+<li><a href="#request">request</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -267,7 +269,34 @@ request做到了既简捷又强大</p>
 <p>这里一个是telnet的用处:模拟简单的browser发请求:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ telnet nladuo.cn <span class="m">80</span>
+
+<span class="c1"># 提示是否已经成功连接</span>
+
+<span class="c1"># 连接后输入 Request</span>
+Host: nladuo.cn<span class="o">(</span>回车<span class="o">)</span>
+HTTP/1.1 <span class="m">200</span> OK<span class="o">(</span>回车*2<span class="o">)</span>
+
+<span class="c1"># 提示提交报文后返回的 Response &amp; html</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>非常简单的东西<br />
+但是然后的东西就坡下驴讲了使用request搭配post方法<br />
+进行请求的示例 - 这里是一个登陆</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -286,34 +315,84 @@ request做到了既简捷又强大</p>
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">$ telnet nladuo.cn <span class="m">80</span>
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">Login_in_with_URL</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;http://nladuo.cn/crawler_lesson2/do_login.php&#34;</span><span class="p">,</span>
+                      <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;uname&#34;</span><span class="p">:</span> <span class="s2">&#34;nladuo&#34;</span><span class="p">,</span> <span class="s2">&#34;passwd&#34;</span><span class="p">:</span> <span class="s2">&#34;nladuo&#34;</span><span class="p">}):</span>
+<span class="c1"># 1. 先登陆</span>
+<span class="n">resp1</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
-<span class="c1"># 提示是否已经成功连接</span>
+<span class="c1"># 2. 保存服务器传回来的Cookie</span>
 
-<span class="c1"># 连接后输入 Request</span>
-Host: nladuo.cn<span class="o">(</span>回车<span class="o">)</span>
-HTTP/1.1 <span class="m">200</span> OK<span class="o">(</span>回车*2<span class="o">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp1</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
-<span class="c1"># 提示提交报文后返回的 Response &amp; html</span>
-HTTP/1.1 <span class="m">200</span> OK
-Server: nginx/1.4.6 <span class="o">(</span>Ubuntu<span class="o">)</span>
-Date: Sun, <span class="m">17</span> Feb <span class="m">2019</span> <span class="m">12</span>:05:05 GMT
-Content-Type: text/html
-Content-Length: <span class="m">18</span>
-Connection: keep-alive
-Last-Modified: Sat, <span class="m">08</span> Dec <span class="m">2018</span> <span class="m">15</span>:29:50 GMT
-ETag: <span class="s2">&#34;12-57c846717793e&#34;</span>
-Accept-Ranges: bytes
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;Set-Cookie:&#34;</span><span class="p">,</span> <span class="n">resp1</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;set-cookie&#34;</span><span class="p">])</span>
+<span class="n">cookie</span> <span class="o">=</span> <span class="n">resp1</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&#34;set-cookie&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;;&#34;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
-&lt;h1&gt;It Works&lt;/h1&gt;
-Connection closed by foreign host.</code></pre></td></tr></table>
+<span class="c1"># 3. 再通过cookie请求隐私页面</span>
+<span class="c1"># 现用浏览器或者Telnet发送Post请求登录, 把cookie粘到这里</span>
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;http://nladuo.cn/crawler_lesson2/private.php&#34;</span><span class="p">,</span> 
+                    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;Cookie&#34;</span><span class="p">:</span> <span class="n">cookie</span><span class="p">})</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="n">features</span> <span class="o">=</span> <span class="s2">&#34;lxml&#34;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+  </code></pre></td></tr></table>
 </div>
 </div>
-<p>非常简单的东西</p>
+<h2 id="爬虫框架">爬虫框架</h2>
+
+<p>爬虫框架的需求:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-C#" data-lang="C#"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C#" data-lang="C#"><span class="p">-</span> <span class="err">任务产生器——</span><span class="n">Producer</span>  
+    <span class="p">-</span> <span class="err">定义任务，如：爬取什么页面？怎么解析</span>
+<span class="p">-</span> <span class="err">下载器——</span><span class="n">Downloader</span>  
+    <span class="p">-</span> <span class="err">接受任务产生器的任务，下载完成后给解析器进行解析。主要是</span><span class="n">I</span><span class="p">/</span><span class="n">O操作</span><span class="err">，受限于网速。</span>
+<span class="p">-</span> <span class="err">解析器——</span><span class="n">Parser</span>  
+    <span class="p">-</span> <span class="err">将下载器下载的内容进行解析，传给输出管道。主要是</span><span class="n">CPU操作</span><span class="err">，受限于下载器的下载速度。</span>
+<span class="p">-</span> <span class="err">输出管道——</span><span class="n">Pipeline</span>  
+    <span class="p">-</span> <span class="err">如何展示爬取的数据</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>系统爬虫的性能以及多线程的意义:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-C#" data-lang="C#"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C#" data-lang="C#"><span class="n">CPU_密集型</span> <span class="err">和</span> <span class="n">IO_密集型业务</span><span class="p">:</span>
+
+<span class="err">系统整体的运行速度其实受限于速度最慢的那个。</span>
+<span class="err">像我们爬虫，最耗时的操作就是下载，整体的爬取速度也就受限于网速。</span>
+<span class="err">多线程可以实现多重下载</span><span class="p">,</span><span class="err">可以加速整个爬虫最慢的过程</span><span class="p">.</span><span class="err">#</span> <span class="err">这句是我自己想的</span>
+
+<span class="err">以上的生产和消费者类似爬虫中的</span> <span class="n">Producer</span> <span class="err">和</span> <span class="n">Worker</span> <span class="err">。</span>
+<span class="n">Producer</span> <span class="err">扮演生产者，生成下载任务，放入任务队列中；</span>
+<span class="n">Worker</span>   <span class="err">扮演消费者，拿到下载任务后，对某个网页进行下载、解析、数据；</span>
+<span class="err">在此同时，</span><span class="n">Worker</span> <span class="err">也会扮演生产者，根据解析到的链接生成新的下载任务，并放到任务队列中交给其他的</span> <span class="n">Worker</span> <span class="err">执行。</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="request">request</h2>
+
+<p>TODO:未完待续</p>
   </div>
 
   <div class="post-copyright">
@@ -334,7 +413,11 @@ Connection closed by foreign host.</code></pre></td></tr></table>
 <footer class="post-footer">
     
     <nav class="post-nav">
-      
+      <a class="prev" href="/post/again_circle/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Again_Circle</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
       <a class="next" href="/post/all_in_vscode/">
         <span class="next-text nav-default">Coding|All_IN_VSCODE</span>
         <span class="next-text nav-mobile">下一篇</span>
